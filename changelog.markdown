@@ -1,3 +1,185 @@
+# 3.6.8 Calculated Risk
+
+- Fixed a bug where `drake.cancel` would misbehave when `copy` was `true`
+
+# 3.6.7 Miscalculation
+
+- Fixed a long-standing bug where candidate positioning would be off by one position
+
+# 3.6.6 Living on the Edge
+
+- Fixed a bug with clicks on IE7, IE8, IE9
+
+# 3.6.5 Shadowbane
+
+- Fixed a bug where `shadow` even would trigger multiple times when moving over the last position
+
+# 3.6.4 Water Tap
+
+- Fixed an instrumentation issue that prevented the tests from running
+
+# 3.6.3 Body Double
+
+- Fixed an issue that prevented `dragula` from execution early in the document load life-cycle
+
+# 3.6.2 Rugrats
+
+- Fixed a _touch events_ regression introduced in `3.6.1`
+
+# 3.6.1 Point Blank
+
+- Fixed issues in touch-enabled browsers such as Windows Phone 10
+
+# 3.6.0 Prognosis Negative
+
+- Introduced support for `contentEditable` DOM attribute
+
+# 3.5.4 Parental Discretion
+
+- Switched from `.parentElement` to `.parentNode` avoiding bugs when hovering over `<svg>` elements
+
+# 3.5.3 Dragster
+
+- Fixed a bug where mobile devices wouldn't be able to drag elements
+
+# 3.5.2 Press Start
+
+- Fixed a bug where `<select>` inputs couldn't be focused
+
+# 3.5.1 Which Hunt
+
+- Fixed a bug when determining the mouse button being pressed
+- Fixed a bug when determining the element behind the mouse cursor when `ignoreInputTextSelection` was enabled
+
+# 3.5.0 Input Fanatic
+
+- Added a feature where users are able to select text ranges with their mouse in inputs within a dragula container
+
+# 3.4.1 Input Accomodation
+
+- Fixed a bug where text in inputs inside containers assigned to `dragula` couldn't be selected
+
+# 3.4.0 Event Sourcing
+
+- Events for `cancel`, `remove`, and `shadow` now all provide a `source` parameter in the third position
+
+# 3.3.2 Captain Obvious
+
+- Fixed a bug where `out` would be emitted with an `undefined` container
+
+# 3.3.1 Significant Other
+
+- Fixed a fringe bug [(#207)](https://github.com/bevacqua/dragula/pull/207) where the click handler wouldn't work
+- Fixed a bug where `drop` events would sometimes not receive the current sibling
+
+# 3.3.0 Brotherhood
+
+- The `options.moves` callback now receives a fourth parameter, the `sibling` found after `el`
+- The `drop` event now receives a fourth parameter, the `sibling` found after `el`
+
+# 3.2.0 Sortable Sauce
+
+- You can now use `options.copySortSource` to enable sorting in `copy`-source containers
+
+# 3.1.0 Copy Paste
+
+- You can now set `options.copy` to a method. It'll be invoked once per drag to ask whether the element being dragged should be treated as a copy or not
+- Fixed a bug where starting a drag programatically while an element was being dragged resulted in an exception
+
+# 3.0.7 Crossroads
+
+- Fixed a bug in Webpack builds by updating `crossvent` to `1.5.3`
+
+# 3.0.5 Mouse Rat Rock Band
+
+- Fixed a bug where `mousedown` would be prevented and focusing draggable inputs wouldn't be possible
+
+# 3.0.4 IE is the old IE
+
+- Fixed a bug in IE8 by updating `crossvent` to `1.5.2`
+
+# 3.0.3 Forest Fire
+
+- Fixed a bug in Firefox where dragging links and images would result in issues
+
+# 3.0.2 Clickhood Rainforest
+
+- Fixed a _historical_ bug, where click on anchors would be ignored within `dragula` containers in mobile
+- Fixed a bug where events wouldn't be gracefully removed if `drake` were destroyed during a drag event
+- Now emits `dragend` after `out` to preserve consistency _(because `drag` is emitted before `over`)_
+- Fixed another old bug where attempting to remove elements using `removeOnSpill` on mobile would fail
+
+# 3.0.1 Carjacking
+
+- Fixed a bug in mobile, caused by `3.0.0`, where scrolling would be impossible
+- Fixed a bug where dragging would cause text selection in IE8
+
+# 3.0.0 Guilty Conscience
+
+- Removed `addContainer` method, which was previously deprecated
+- Removed `removeContainer` method, which was previously deprecated
+- Removed `delay` option in favor of using `mousemove`
+- Drag events now start on the first occurrence of a `mousemove` event
+- If `mousemove` never fires, then the `drag` machinery won't start, either
+- Changed default value for `invalid`, now always returns `false` by default
+- Added `mirrorContainer` option to determine where the mirror gets appended to _(defaults to `document.body`)_
+
+# 2.1.2 Shady Sibling
+
+- Fixed a bug where `shadow` would trigger multiple times while dragging an element over the same spot
+
+# 2.1.1 Classy Drake
+
+- Fixed a bug where adding and removing classes might've caused issues on elements that had foreign CSS classes
+- Added an argument to `cloned` event that specifies the kind of clone. Possible values include `mirror` and `copy` at the moment
+
+# 2.1.0 Over and Out
+
+- Added `over` event that fires whenever an element is dragged over a container _(or whenever a drag event starts)_
+- Added `out` event that fires whenever an element is dragged out of a container _(or whenever a drag event ends)_
+
+# 2.0.7 Mayhem
+
+- Fixed a bug caused in `2.0.6` where anything would be regarded as a `drake` container
+
+# 2.0.6 Coruscant
+
+- Fixed a bug where `isContainer` would be called with a `el=null` in some situations
+
+# 2.0.5 Cross Ventilation
+
+- Bumped `crossvent@1.5.0`
+
+# 2.0.4 Transit Overload
+
+- Set `gu-transit` after a drag event has fully started
+
+# 2.0.3 Mice Trap
+
+- Fixed a bug where using `.cancel` would throw an exception
+
+# 2.0.2 Aural Emission
+
+- Replaced `contra.emitter` with `contra@1.9.1/emitter`
+
+# 2.0.1 Copycat
+
+- Fixed a bug where dragging a copy back to origin after hovering over another container would still result in a copy being made if you never spilled the item
+
+# 2.0.0 Containerization
+
+- Deprecated `addContainer` method
+- Deprecated `removeContainer` method
+- Exposed `dragula.containers` collection
+- Introduced dynamic `isContainer` method
+- Can now omit `containers` argument to `dragula(containers, options)`
+- Can now pass `containers` as an option
+
+# 1.7.0 Clickety Click
+
+- Differentiate between drag and click using `delay` option
+- Ability to specify which event targets are `invalid` drag triggers
+
 # 1.6.1 Shadow Drake
 
 - Improved shadow positioning when `revertOnSpill` is `true`
